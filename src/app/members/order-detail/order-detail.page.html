@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Order Detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ title }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            No Of Garments:
+          </ion-col>
+          <ion-col>
+            {{ currOrder.noOfGarments }}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            Services requested:
+          </ion-col>
+          <ion-col>
+            {{ currOrder.services }}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            Total amount:
+          </ion-col>
+          <ion-col>
+            {{ currOrder.amount }}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>Pickup Address:</ion-col>
+          <ion-col>
+            {{ currOrder.address }} {{currOrder.pincode}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            Pickup Date:
+          </ion-col>
+          <ion-col>
+            {{ currOrder.pickupDate }}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            Pickup Slot:
+          </ion-col>
+          <ion-col>
+            {{ currOrder.pickupTimeslot }}
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="currOrder.deliveryDate !== 'Cancelled' || currOrder.payStauts === 'Recieved'">
+          <ion-col>
+            Expected delivery date:
+          </ion-col>
+          <ion-col>
+            {{ currOrder.deliveryDate }}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            Order status:
+          </ion-col>
+          <ion-col>
+            {{ currOrder.orderStatus }}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            Payment Status:
+          </ion-col>
+          <ion-col>
+            {{ currOrder.payStauts }}
+          </ion-col>
+        </ion-row>
+
+        <div *ngIf="status">
+          <ion-row>
+            <!-- <ion-col>
+              <ion-button expand="block" color="success" shape="round" (click)="onEdit()">
+                <ion-ripple-effect></ion-ripple-effect>Update pickup
+              </ion-button>
+            </ion-col> -->
+            <ion-col>
+              <ion-button expand="block" color="danger" shape="round" (click)="presentAlertConfirm()">
+                <ion-ripple-effect></ion-ripple-effect>Cancel Pickup
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login Form</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row justify-content-center>
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <form #loginForm="ngForm">
+            <div padding>
+                <ion-item>
+                    <ion-label position="floating">Email ID:</ion-label>
+                    <ion-input 
+                    type="email" 
+                    name="userEmail" 
+                    ngModel
+                    required 
+                    email
+                    #userEmail="ngModel"></ion-input>
+                </ion-item>
+
+                <p *ngIf="!userEmail.valid && userEmail.touched" class="help-block">Email is invalid.</p>
+      
+                <ion-item>
+                    <ion-label position="floating">Password:</ion-label>
+                    <ion-input 
+                    type="password" 
+                    name="userPassword"
+                    required
+                    ngModel
+                    #pass="ngModel"></ion-input>
+                </ion-item>
+      
+                  <p *ngIf="pass.value.length<6 && pass.touched" class="help-block">Passwords should atleast contain 6 Characters</p>
+            </div>
+            <div padding>
+              <ion-button size="" type="submit" expand="block" (click)="onLogin()" [disabled]="!userForm.valid">
+                  <ion-ripple-effect></ion-ripple-effect>
+                  Login</ion-button>
+            </div>
+            <div padding>
+              <a (click)="onForgotPassClick()">Forgot Password?</a>
+              </div>
+            <div padding>
+            Don't have a account?<br>
+            <a (click)="onSignUpClick()">Sign up now!</a>
+            </div>
+          </form>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+</ion-content>

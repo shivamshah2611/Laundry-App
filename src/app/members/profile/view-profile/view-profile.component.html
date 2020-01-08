@@ -1,0 +1,62 @@
+<div [@elementState]="state">
+      <ion-card mode="ios">
+
+            <ion-card-header>
+
+                  <ion-item>
+                        <ion-label class="my-label" item-start>
+                              Welcome, {{user.username}}
+                        </ion-label>
+                        <ion-button item-end (click)="gotoEdit()" color="warning"  shape="round" fill="outline">
+                              <ion-ripple-effect></ion-ripple-effect>
+                              Edit
+                              <ion-icon slot="end" name="create"></ion-icon>
+                        </ion-button>
+                  </ion-item>
+
+            </ion-card-header>
+
+            <ion-card-content padding>
+                  <ion-grid>
+                        <ion-row>
+                              <ion-col>
+                                    Username :  
+                              </ion-col>
+                              <ion-col>
+                                    {{user.username}} 
+                              </ion-col>
+                        </ion-row>
+                        <ion-row>
+                              <ion-col>
+                                    Email :  
+                              </ion-col>
+                              <ion-col>
+                                    {{user.email}} 
+                              </ion-col>
+                        </ion-row>
+                        <ion-row>
+                              <ion-col>
+                                    Phone Number  
+                              </ion-col>
+                              <ion-col>
+                                    {{user.phoneNum}} 
+                              </ion-col>
+                        </ion-row>
+                        <ion-row>
+                              <ion-col>
+                                    Member Since :  
+                              </ion-col>
+                              <ion-col>
+                                    {{joinDate}} 
+                              </ion-col>
+                        </ion-row>
+                  </ion-grid>
+            </ion-card-content>
+
+      </ion-card>
+
+      <ion-button padding expand="block" shape="round" color="danger" (click)="onLogout()">
+            <ion-ripple-effect></ion-ripple-effect>Log Out
+      </ion-button>
+
+</div>

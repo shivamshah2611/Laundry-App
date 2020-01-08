@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Confirm Order</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card mode="ios">
+
+    <ion-card-content>
+      <ion-grid>
+
+        <ion-row>
+          <ion-col>
+              No Of Garments:
+          </ion-col>
+          <ion-col>
+              {{ newOrder.noOfGarments }}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+              Services:
+          </ion-col>
+          <ion-col>
+              {{ newOrder.services }}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+              Amount:
+          </ion-col>
+          <ion-col>
+              {{ newOrder.amount }}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>Selected Address:</ion-col>
+          <ion-col>
+            <!-- {{address.nickname}}, {{address.add_line}}, {{address.district}}, {{address.state}}, {{address.pincode}} -->
+            {{newOrder.address}}, {{newOrder.pincode}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>Pickup date:</ion-col>
+          <ion-col>
+            {{newOrder.pickupDate}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>Expect your clothes back on:</ion-col>
+          <ion-col>
+            {{newOrder.deliveryDate}}
+          </ion-col>
+        </ion-row>
+        
+        
+        <ion-row>
+          <ion-col>Time Slot for pickup:</ion-col>
+          <ion-col>
+            {{newOrder.timeslot}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="col-xs-6">
+            <ion-button expand="block" color="success" shape="round" (click)="confirmOrder()">
+              <ion-ripple-effect></ion-ripple-effect>Confirm Pickup
+            </ion-button>
+          </ion-col>
+          <ion-col class="col-xs-6">
+            <ion-button expand="block" fill="outline" color="danger" shape="round" [routerLink]="['/members/home']" routerDirection="back">
+              <ion-ripple-effect></ion-ripple-effect>Cancel Pickup
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

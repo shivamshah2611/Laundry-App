@@ -1,0 +1,85 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Add Address</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>    
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row justify-content-center>
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <div padding>
+    
+            <form #addrForm="ngForm">
+    
+              <ion-list>
+    
+                <ion-item>
+                  <ion-label position="floating">Nickname for place:</ion-label>
+                  <ion-input 
+                  type="text" 
+                  name="nickname"
+                  ngModel 
+                  placeholder="Home, Uncle's Place"
+                  required autofocus></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label position="floating">Address Line:</ion-label>
+                    <ion-input 
+                    type="text" 
+                    name="add_line"
+                    ngModel 
+                    required></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label position="floating">District:</ion-label>
+                    <ion-input 
+                    type="text" 
+                    name="district"
+                    ngModel 
+                    required></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label position="floating">State:</ion-label>
+                    <ion-input 
+                    type="text" 
+                    name="state"
+                    ngModel 
+                    required></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label position="floating">Country</ion-label>
+                    <ion-select placeholder="select one" okText="Okay" cancelText="Dismiss" name="country" ngModel required>
+                        <ion-select-option *ngFor="let country of countries" [value]="country">{{country}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label position="floating">Pincode:</ion-label>
+                    <ion-input 
+                    type="tel" 
+                    maxlength="6"
+                    name="pincode"
+                    ngModel 
+                    required></ion-input>
+                </ion-item>
+
+              </ion-list>
+              
+              <ion-button expand="block" (click)="onAddAddress()" [disabled]="!addrForm.valid">
+                  <ion-ripple-effect></ion-ripple-effect>Add</ion-button>
+
+            </form>
+            </div>
+          </ion-col>
+        </ion-row>
+    </ion-grid>  
+            
+</ion-content>

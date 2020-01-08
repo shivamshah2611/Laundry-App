@@ -1,0 +1,24 @@
+<ion-list>
+  <ion-item>
+    <ion-label>Time Filter</ion-label>
+    <ion-select
+      slot="end"
+      okText="Okay"
+      cancelText="Dismiss"
+      (ionChange)="onOptionChange()"
+      [(ngModel)]="selectedOption"
+    >
+      <ion-select-option *ngFor="let option of options" [value]="option.value">
+        {{ option.name }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-list-header>
+    <ion-label>{{ selectedString }}</ion-label>
+  </ion-list-header>
+  <app-order
+    *ngFor="let order of orders"
+    [currOrder]="order"
+    (click)="onDetail(order)"
+  ></app-order>
+</ion-list>

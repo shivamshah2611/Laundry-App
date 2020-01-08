@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Address</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div padding>
+    <div class="row">
+  
+      <form #updateAddrForm="ngForm">
+        <ion-list>
+  
+          <ion-item>
+            <ion-label position="stacked">Nickname:</ion-label>
+            <ion-input type="text" name="nickname" [ngModel]="address.nickname" required autofocus></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Address Line:</ion-label>
+            <ion-input type="text" name="addLine" [ngModel]="address.add_line" required autofocus></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">District:</ion-label>
+            <ion-input type="text" name="district" [ngModel]="address.district" required autofocus></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">State:</ion-label>
+            <ion-input type="text" name="state" [ngModel]="address.state" required autofocus></ion-input>
+          </ion-item>
+
+        </ion-list>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <ion-button expand="block" color="success" (click)="onSaveChanges()" [disabled]="!updateAddrForm.valid"> <ion-ripple-effect></ion-ripple-effect>Update</ion-button>
+            </ion-col>
+            <ion-col col-6>
+              <ion-button expand="block" [routerLink]="['/members/address-book']" routerDirection="back" > <ion-ripple-effect></ion-ripple-effect>Cancel</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        
+      </form>
+    </div>
+  </div>
+</ion-content>

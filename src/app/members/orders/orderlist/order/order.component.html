@@ -1,0 +1,64 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ title }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          No Of Garments:
+        </ion-col>
+        <ion-col>
+          {{ currOrder.noOfGarments }}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          Services requested:
+        </ion-col>
+        <ion-col>
+          {{ currOrder.services }}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          Total amount:
+        </ion-col>
+        <ion-col>
+          {{ currOrder.amount }}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          Pickup Date:
+        </ion-col>
+        <ion-col>
+          {{ currOrder.pickupDate }}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          Expected delivery date:
+        </ion-col>
+        <ion-col>
+          {{ currOrder.deliveryDate }}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          Order status:
+        </ion-col>
+        <ion-col>
+          {{ currOrder.orderStatus }}
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form #newOrderForm="ngForm" (ngSubmit)="onOrderCreated()">
+    <ion-list>
+      <ion-item>
+        <ion-label>Number of garments:</ion-label>
+        <ion-input
+          type="tel"
+          maxlength="2"
+          fill="outline"
+          name="noOfGarments"
+          ngModel
+          (ngModelChange)="onPropertyChange()"
+          placeholder="10"
+          required
+          text-end
+        ></ion-input>
+      </ion-item>
+
+      <!-- <p class="help-block" *ngIf="">
+        No of garmanets cannot be greater than 50.
+      </p> -->
+
+      <br />
+
+      <ion-item>
+        <ion-label>Choose type:</ion-label>
+      </ion-item>
+
+      <ion-item *ngFor="let laundryS of laundryServices">
+        <ion-label>{{ laundryS.val }}</ion-label>
+        <ion-checkbox
+          mode="ios"
+          [name]="laundryS.key"
+          [(ngModel)]="laundryS.isChecked"
+          slot="start"
+          (ngModelChange)="onPropertyChange()"
+        ></ion-checkbox>
+        <ion-label slot="end" class="help-block"
+          >{{ laundryS.rate }}/Per Garment</ion-label
+        >
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Select date for pickup:</ion-label>
+
+        <ion-datetime
+          displayFormat="DD MMM, YYYY"
+          pickerFormat="DD MMMM YYYY"
+          [min]="minDate"
+          [max] = "maxDate"
+          name="pickupDate"
+          [(ngModel)]="pickupDate"
+          required
+        ></ion-datetime>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Select Time Slot for Pickup:</ion-label>
+        <ion-select
+          [interfaceOptions]="customOptions"
+          interface="alert"
+          name="timeslot"
+          ngModel
+          placeholder="Select One"
+          required
+        >
+          <ion-select-option
+            *ngFor="let timeslot of timeSlots"
+            [value]="timeslot.key"
+            >{{ timeslot.val }}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="amount !== 0">
+        <ion-label>
+          Total Amount:
+        </ion-label>
+        <ion-label slot="end">
+          {{ amount }}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-button
+      shape="round"
+      fill="outline"
+      type="submit"
+      [disabled]="!newOrderForm.valid"
+    >
+      Select Location
+      <ion-icon slot="start" name="arrow-round-forward" mode="ios"></ion-icon>
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Select Address</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>    
+</ion-header>
+
+<ion-content padding>
+  <form #selectAddressForm="ngForm">
+    <ion-list>
+      <ion-radio-group name="radio" ngModel required>
+          <ion-list-header>
+              <ion-label class="sz">Select Address for Pickup & Delivery:</ion-label>
+              <ion-button class="col-4 pull-right" style="font-size: 10px" (click)="addAddressClick()" fill="outline" shape="round">
+                  Add Address
+              </ion-button>
+          </ion-list-header>
+          
+          <ion-item *ngFor="let address of addresses">
+                  <ion-radio [value]="address.id"></ion-radio>
+                  <app-address [address]="address" [state] ="false" width="100%"></app-address>
+          </ion-item>
+  
+      </ion-radio-group>
+    </ion-list> 
+    <ion-button type="submit" shape="round" expand="block" (click)="onSelectAddress()" [disabled]="!selectAddressForm.valid">
+        <ion-ripple-effect></ion-ripple-effect>
+        Done</ion-button>   
+  </form>
+</ion-content>

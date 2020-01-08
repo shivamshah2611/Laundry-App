@@ -1,0 +1,35 @@
+<div padding [@elementState]="state">
+  <div class="row">
+
+    <form #updateUserForm="ngForm">
+      <ion-list>
+
+        <ion-item>
+          <ion-label position="stacked">Name:</ion-label>
+          <ion-input type="text" name="username" [(ngModel)]="user.username" required autofocus></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Phone Number:</ion-label>
+          <ion-input type="tel" maxlegth="10" name="userPhoneNumber"  [(ngModel)]="user.phoneNum" required #userPhone="ngModel"
+            pattern="[1-9]{1}[0-9]{9}"></ion-input>
+        </ion-item>
+
+        <p *ngIf="(userPhone.value.length<10 || userPhone.value.length>10)  && userPhone.touched" class="help-block">
+          Phone number cannot be less than 10 digits and cannot start with 0.</p>
+
+      </ion-list>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <ion-button expand="block" color="success" (click)="onSaveChanges()" [disabled]="!updateForm.valid"> <ion-ripple-effect></ion-ripple-effect>Update</ion-button>
+          </ion-col>
+          <ion-col col-6>
+            <ion-button expand="block" (click)= "onCancel()" > <ion-ripple-effect></ion-ripple-effect>Cancel</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+    </form>
+  </div>
+</div>

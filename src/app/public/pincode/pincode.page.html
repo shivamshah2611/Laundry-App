@@ -1,0 +1,26 @@
+<ion-content padding class="bg-image no-scroll">
+  <ion-grid class="middle">
+
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div padding>
+          <div class="mainHeader bgt">The<br>Laundry<br>App<br></div><br>
+          <div>
+            <ion-label style="font-size: 17px">Enter Pincode:</ion-label>
+            <ion-item>
+              <ion-input type="tel" maxlength="6" class="pincode" (input)="onPincodeChange($event)" text-center
+                autofocus></ion-input>
+            </ion-item>
+          </div>
+          <p *ngIf="pincode.length<6 && pincode.length != 0" class="help-block">Must be a 6 digit valid Indian Pincode</p>
+        </div>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="checkPincode()" [disabled]="!buttonStatus">
+      <ion-icon name="arrow-forward" style="font-size:30px"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

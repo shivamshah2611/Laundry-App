@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sign Up</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div padding>
+
+          <form #userForm="ngForm">
+
+            <ion-list>
+
+              <ion-item>
+                <ion-label position="floating">Name:</ion-label>
+                <ion-input type="text" name="username" ngModel required autofocus></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Email ID:</ion-label>
+                <ion-input type="email" name="userEmail" ngModel required email #userEmail="ngModel"></ion-input>
+              </ion-item>
+
+              <p *ngIf="!userEmail.valid && userEmail.touched" class="help-block">Email is invalid.</p>
+
+              <ion-item>
+                <ion-label position="floating">Phone Number:</ion-label>
+                <ion-input type="tel" maxlegth="10" name="userPhoneNumber" ngModel required #userPhone="ngModel"
+                  pattern="[1-9]{1}[0-9]{9}"></ion-input>
+              </ion-item>
+
+              <p *ngIf="userPhone.value.length<10 && userPhone.touched" class="help-block">Phone number cannot be less
+                than 10 digits and cannot start with 0.</p>
+
+              <ion-item>
+                <ion-label position="floating">Password:</ion-label>
+                <ion-input type="password" name="userPassword" required ngModel #pass="ngModel"></ion-input>
+              </ion-item>
+
+              <p *ngIf="pass.value.length<6 && pass.touched" class="help-block">Passwords should atleast contain 6
+                Characters</p>
+
+              <ion-item>
+                <ion-label position="floating">Confirm Password:</ion-label>
+                <ion-input type="password" name="userConfPassword" required ngModel #cPass="ngModel"></ion-input>
+              </ion-item>
+
+              <br>
+              <p *ngIf="!(pass.value === cPass.value) && pass.touched && cPass.touched" class="help-block">Passwords do
+                not match.</p>
+              <br>
+
+              <ion-button expand="block" (click)="onSignUp()"
+                [disabled]="!userForm.valid || !(pass.value === cPass.value)">
+                <ion-ripple-effect></ion-ripple-effect>Sign Up
+              </ion-button>
+
+            </ion-list>
+            <div padding>
+              Already have a account?<br>
+              <a (click)="onLoginClick()">Login!</a>
+            </div>
+          </form>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ address.nickname }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>{{ address.add_line }}</p>
+    <p>{{ address.district }}</p>
+    <p>{{ address.state }}</p>
+    <p>{{ address.pincode }}</p>
+    <div *ngIf="state">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" color="success" shape="round" (click)="onEditClick()">
+              <ion-ripple-effect></ion-ripple-effect>Edit
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" color="danger" shape="round" (click)="presentAlertConfirm()">
+              <ion-ripple-effect></ion-ripple-effect>Delete
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card-content>
+</ion-card>

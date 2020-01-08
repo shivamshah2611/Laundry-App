@@ -1,0 +1,61 @@
+input[class$="pincode"]
+{
+    border-bottom: 10px;
+    border-color: black;
+}
+$white-color: #fff;
+$height100: 100%;
+
+ion-grid {
+    width:100%;
+    height: $height100;
+}
+
+ion-row {
+    height: $height100;
+}
+
+ion-col {
+    border: 1px solid #488aff;
+}
+.mainHeader{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+}
+
+.bg-image {
+    --background: url("src\assets\3.png") repeat;
+}
+ .no-scroll .scroll-content {
+    overflow: hidden;
+}
+.bgt {
+    background-color: rgba($color: rgb(198, 191, 255), $alpha: .3);
+    border:1;
+    padding: 5%;
+    border-radius: 25px;
+}
+
+.middle {
+    position: absolute;
+    float: left;
+    top : 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 3%;
+}
+@media (min-width: 240px) and (max-width: 768px) {
+    ion-col {
+        border: none;
+    }
+}
+
+.heading {
+    margin-top: 25vh;
+}
+.pincode {
+    width: 150px;
+}
